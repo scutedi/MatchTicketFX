@@ -1,0 +1,20 @@
+19 Mar 2025 11:28:10,837 INFO  ro.mpp2025.Repository.DataBase.BiletRepoDB 25 <init> - Initializing BiletRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+19 Mar 2025 11:28:10,842 INFO  ro.mpp2025.Repository.DataBase.ClientRepoDB 21 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+19 Mar 2025 11:28:10,843 INFO  ro.mpp2025.Repository.DataBase.EchipaRepoDB 22 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+19 Mar 2025 11:28:10,845 INFO  ro.mpp2025.Repository.DataBase.MeciRepoDB 24 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+19 Mar 2025 11:28:10,846 INFO  ro.mpp2025.Repository.DataBase.UserRepoDB 21 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+19 Mar 2025 11:28:10,847 TRACE ro.mpp2025.Repository.DataBase.MeciRepoDB 64 findAll - Enter
+19 Mar 2025 11:28:10,847 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+19 Mar 2025 11:28:10,847 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+19 Mar 2025 11:28:10,847 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+19 Mar 2025 11:28:11,105 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@40c65378)
+19 Mar 2025 11:28:11,112 TRACE ro.mpp2025.Repository.DataBase.MeciRepoDB 91 findAll - Exit
+19 Mar 2025 11:28:18,295 TRACE ro.mpp2025.Repository.DataBase.UserRepoDB 149 findOneUserByEmail - Enter
+19 Mar 2025 11:28:18,296 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+19 Mar 2025 11:28:18,296 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+19 Mar 2025 11:28:18,296 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+19 Mar 2025 11:28:18,297 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@168ecabd)
+19 Mar 2025 11:28:18,337 TRACE ro.mpp2025.Repository.DataBase.MeciRepoDB 64 findAll - Enter
+19 Mar 2025 11:28:18,337 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+19 Mar 2025 11:28:18,337 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@40c65378)
+19 Mar 2025 11:28:18,337 TRACE ro.mpp2025.Repository.DataBase.MeciRepoDB 91 findAll - Exit

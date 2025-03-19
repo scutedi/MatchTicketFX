@@ -1,0 +1,44 @@
+16 Mar 2025 14:48:57,629 INFO  ro.mpp2025.Repository.DataBase.UserRepoDB 21 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+16 Mar 2025 14:48:57,633 TRACE ro.mpp2025.Repository.DataBase.UserRepoDB 89 save - User{email='asd@gmail.com', password='1234'}
+16 Mar 2025 14:48:57,635 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+16 Mar 2025 14:48:57,635 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+16 Mar 2025 14:48:57,635 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+16 Mar 2025 14:48:57,764 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@659499f1)
+16 Mar 2025 14:48:57,770 TRACE ro.mpp2025.Repository.DataBase.UserRepoDB 103 save - Exit
+16 Mar 2025 14:48:57,772 INFO  ro.mpp2025.Repository.DataBase.ClientRepoDB 21 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+16 Mar 2025 14:48:57,773 TRACE ro.mpp2025.Repository.DataBase.ClientRepoDB 79 save - Client{Nume='Vasile', adresa='Stefan cel Mare'}
+16 Mar 2025 14:48:57,773 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+16 Mar 2025 14:48:57,773 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+16 Mar 2025 14:48:57,773 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+16 Mar 2025 14:48:57,774 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@272113c4)
+16 Mar 2025 14:48:57,776 TRACE ro.mpp2025.Repository.DataBase.ClientRepoDB 90 save - Exit
+16 Mar 2025 14:48:57,777 INFO  ro.mpp2025.Repository.DataBase.EchipaRepoDB 22 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+16 Mar 2025 14:48:57,778 TRACE ro.mpp2025.Repository.DataBase.EchipaRepoDB 78 save - Echipa{Nume='Cei Trei Muschetari,Id='null'}
+16 Mar 2025 14:48:57,778 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+16 Mar 2025 14:48:57,778 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+16 Mar 2025 14:48:57,778 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+16 Mar 2025 14:48:57,779 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@242b836)
+16 Mar 2025 14:48:57,783 TRACE ro.mpp2025.Repository.DataBase.EchipaRepoDB 94 save - Exit
+16 Mar 2025 14:48:57,783 INFO  ro.mpp2025.Repository.DataBase.EchipaRepoDB 22 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+16 Mar 2025 14:48:57,783 TRACE ro.mpp2025.Repository.DataBase.EchipaRepoDB 78 save - Echipa{Nume='Echipa Mustar,Id='null'}
+16 Mar 2025 14:48:57,783 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+16 Mar 2025 14:48:57,783 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+16 Mar 2025 14:48:57,784 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+16 Mar 2025 14:48:57,785 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3f6f6701)
+16 Mar 2025 14:48:57,786 TRACE ro.mpp2025.Repository.DataBase.EchipaRepoDB 94 save - Exit
+16 Mar 2025 14:48:57,787 INFO  ro.mpp2025.Repository.DataBase.MeciRepoDB 24 <init> - Initializing OrganizatorRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+16 Mar 2025 14:48:57,787 TRACE ro.mpp2025.Repository.DataBase.ClientRepoDB 27 findOne - Enter
+16 Mar 2025 14:48:57,788 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+16 Mar 2025 14:48:57,788 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@272113c4)
+16 Mar 2025 14:48:57,791 TRACE ro.mpp2025.Repository.DataBase.MeciRepoDB 30 findOne - Enter
+16 Mar 2025 14:48:57,791 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+16 Mar 2025 14:48:57,791 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+16 Mar 2025 14:48:57,791 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+16 Mar 2025 14:48:57,792 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5e600dd5)
+16 Mar 2025 14:48:57,794 INFO  ro.mpp2025.Repository.DataBase.BiletRepoDB 25 <init> - Initializing BiletRepoDB with properties: {jdbc.url=jdbc:sqlite:meciuri.db} 
+16 Mar 2025 14:48:57,799 TRACE ro.mpp2025.Repository.DataBase.BiletRepoDB 101 save - Bilete{meci_id='Meci {idEchipaA='Echipa{Nume='Cei Trei Muschetari,Id='null'}'idEchipaB='Echipa{Nume='Echipa Mustar,Id='null'}'nume_meci='dasd'nr_loc='das'pret='12'', client_id='Client{Nume='Vasile', adresa='Stefan cel Mare'}'}
+16 Mar 2025 14:48:57,799 TRACE ro.mpp2025.Utils.JdbcUtils 34 getConnection - Enter
+16 Mar 2025 14:48:57,799 TRACE ro.mpp2025.Utils.JdbcUtils 19 getNewConnection - Enter
+16 Mar 2025 14:48:57,799 INFO  ro.mpp2025.Utils.JdbcUtils 21 getNewConnection - trying to connect to database ... jdbc:sqlite:meciuri.db
+16 Mar 2025 14:48:57,800 TRACE ro.mpp2025.Utils.JdbcUtils 43 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@18df8434)
+16 Mar 2025 14:48:57,803 TRACE ro.mpp2025.Repository.DataBase.BiletRepoDB 112 save - Exit

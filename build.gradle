@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+    id 'org.beryx.jlink' version '2.25.0'
+}
+
+group = 'ro.mpp2025'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.logging.log4j:log4j-core:2.24.3'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation group: 'com.google.guava', name: 'guava', version: '32.0.1-android'
+
+    // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+    implementation 'org.xerial:sqlite-jdbc:3.49.1.0'
+
+    // https://mvnrepository.com/artifact/app.cash.sqldelight/sqlite-driver
+    runtimeOnly 'app.cash.sqldelight:sqlite-driver:2.0.2'
+
+    implementation 'org.springframework:spring-context:6.1.5'
+}
+
+application {
+    mainClass = 'ro.mpp2025.Main'
+}
+
+javafx {
+    version = '17.0.6'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web', 'javafx.media']
+}
+
+jar{
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest{
+        attributes('Main-Class' : 'ro.mpp2025.Main')
+    }
+
+    from{
+        configurations.runtimeClasspath.collect {it.isDirectory() ? it : zipTree(it) }
+    }
+
+}
+
+test {
+    useJUnitPlatform()
+}
