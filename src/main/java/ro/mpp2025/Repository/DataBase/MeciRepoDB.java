@@ -41,7 +41,9 @@ public class MeciRepoDB implements IRepositoryMeci {
                 if (result.next()) {
                     int id = result.getInt("id_meci");
                     Echipa echipaA = new Echipa(result.getString("echipaA_nume"));
+                    echipaA.setId(result.getInt("echipaA_id"));
                     Echipa echipaB = new Echipa(result.getString("echipaB_nume"));
+                    echipaA.setId(result.getInt("echipaB_id"));
                     String nume_meci = result.getString("nume_meci");
                     Integer nr_loc = result.getInt("nr_loc");
                     int pret = result.getInt("pret");
@@ -65,7 +67,7 @@ public class MeciRepoDB implements IRepositoryMeci {
 
         Connection con = dbUtils.getConnection();
         List<Meci> meciuri = new ArrayList<Meci>();
-        String sql = "SELECT M.id_meci, M.nume_meci, M.nr_loc, M.pret, e1.id_echipa , e1.name as echipaA_nume, e2.id_echipa , e2.name as echipaB_nume " +
+        String sql = "SELECT M.id_meci, M.nume_meci, M.nr_loc, M.pret, e1.id_echipa as echipaA_id , e1.name as echipaA_nume, e2.id_echipa as echipaB_id, e2.name as echipaB_nume " +
                 "FROM Meci M " +
                 "JOIN Echipa e1 ON M.echipaA_id = e1.id_echipa " +
                 "JOIN Echipa e2 ON M.echipaB_id = e2.id_echipa " ;
@@ -74,7 +76,9 @@ public class MeciRepoDB implements IRepositoryMeci {
                 while (result.next()) {
                     int id = result.getInt("id_meci");
                     Echipa echipaA = new Echipa(result.getString("echipaA_nume"));
+                    echipaA.setId(result.getInt("echipaA_id"));
                     Echipa echipaB = new Echipa(result.getString("echipaB_nume"));
+                    echipaB.setId(result.getInt("echipaB_id"));
                     String nume_meci = result.getString("nume_meci");
                     Integer nr_loc = result.getInt("nr_loc");
                     int pret = result.getInt("pret");

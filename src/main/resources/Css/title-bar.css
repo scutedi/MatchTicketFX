@@ -1,0 +1,15 @@
+.root {
+    -fx-background-color: #34495E; /* Culoare background */
+    -fx-font-family: Arial;
+}
+
+.title-bar {
+    -fx-background-color: #2C3E50; /* Culoare background pentru bara de titlu personalizată */
+    -fx-padding: 10px;
+}
+
+.title-bar .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-padding: 5px 10px;
+}

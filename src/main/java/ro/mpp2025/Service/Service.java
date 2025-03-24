@@ -35,6 +35,24 @@ public class Service {
         return repositoryClient.findOneClientByNumeAndAdresa(name , adresa);
     }
 
+    public Iterable<Bilet> findAllOneByName(String name){
+        return repositoryBilet.findAllOneByName(name);
+    }
+
+    public int getNumarBilete(String numeClient, String numeMeci) {
+        int count = 0;
+
+        for (Bilet bilet : repositoryBilet.findAll()) {
+            if (bilet.getClient_id().getNume().equals(numeClient) &&
+                    bilet.getMeci_id().getNume_meci().equals(numeMeci)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+
     public void saveBilete(Meci meci, Client client){
         repositoryBilet.save(new Bilet(meci, client));
     }

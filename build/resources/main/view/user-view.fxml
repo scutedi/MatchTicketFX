@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -8,38 +9,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="535.0" prefWidth="826.0" style="-fx-background-color: #173F5F;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.mpp2025.Controllers.UserController">
+<AnchorPane prefHeight="499.0" prefWidth="1050.0" style="-fx-background-color: linear-gradient(to top right, #173F5F, #532184); -fx-border-color: #48c3f7; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ro.mpp2025.Controllers.UserController">
     <children>
-        <TableView fx:id="tabel_probe" layoutX="23.0" layoutY="255.0" prefHeight="250.0" prefWidth="779.0">
-            <columns>
-                <TableColumn fx:id="col_echipaA" prefWidth="175.1999855041504" text="echipaA" />
-                <TableColumn fx:id="col_echipaB" prefWidth="210.40000915527344" text="echipaB" />
-                <TableColumn fx:id="col_nume_meci" prefWidth="194.39996337890625" text="nume_meci" />
-                <TableColumn fx:id="col_nr_loc" prefWidth="110.39996337890625" text="nr_loc" />
-                <TableColumn fx:id="col_pret" prefWidth="90.4000244140625" text="pret" />
-            </columns>
-        </TableView>
-        <Label alignment="CENTER" layoutX="329.0" layoutY="185.0" prefHeight="18.0" prefWidth="266.0" text="Meciuri" textFill="#48c3f7">
+        <Label alignment="CENTER" layoutX="555.0" layoutY="182.0" prefHeight="18.0" prefWidth="266.0" text="Meciuri" textFill="WHITE">
          <font>
             <Font size="44.0" />
          </font></Label>
-      <Label alignment="CENTER" layoutX="565.0" layoutY="49.0" prefHeight="18.0" prefWidth="59.0" text="Nume" textFill="#48c3f7" />
-      <Label alignment="CENTER" layoutX="565.0" layoutY="86.0" prefHeight="18.0" prefWidth="59.0" text="Adresa" textFill="#48c3f7" />
-      <Label alignment="CENTER" layoutX="565.0" layoutY="121.0" prefHeight="18.0" prefWidth="59.0" text="NrBilete" textFill="#48c3f7" />
-      <TextField fx:id="nume" layoutX="625.0" layoutY="45.0" />
-      <TextField fx:id="adresa" layoutX="625.0" layoutY="83.0" />
-      <TextField fx:id="nrBilete" layoutX="625.0" layoutY="117.0" />
-      <Button fx:id="btn_cumpara" layoutX="624.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #20639B;" text="Comanda" textFill="#48c3f7" />
-      <TableView fx:id="tableFilter" layoutX="31.0" layoutY="18.0" prefHeight="200.0" prefWidth="294.0">
-        <columns>
-          <TableColumn fx:id="col_nume_filter" prefWidth="133.59997940063477" text="Nume" />
-          <TableColumn fx:id="col_meci_filter" prefWidth="158.40000915527344" text="Meci" />
+      <Label alignment="CENTER" layoutX="808.0" layoutY="57.0" prefHeight="18.0" prefWidth="59.0" text="Nume" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="808.0" layoutY="92.0" prefHeight="18.0" prefWidth="59.0" text="Adresa" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="808.0" layoutY="123.0" prefHeight="18.0" prefWidth="59.0" text="NrBilete" textFill="WHITE" />
+      <TextField fx:id="nume" layoutX="876.0" layoutY="53.0" />
+      <TextField fx:id="adresa" layoutX="876.0" layoutY="88.0" />
+      <TextField fx:id="nrBilete" layoutX="876.0" layoutY="119.0" />
+      <Button fx:id="btn_cumpara" layoutX="876.0" layoutY="163.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: #20639B;" text="Comanda" textFill="WHITE" />
+      <TableView fx:id="tableFilter" layoutX="31.0" layoutY="54.0" prefHeight="192.0" prefWidth="478.0" style="-fx-border-color: #48c3f7; -fx-border-width: 3;">
+          <stylesheets>
+              <URL value="@../Css/table.css" />
+          </stylesheets>
+          <columns>
+            <TableColumn fx:id="col_nume_filter" prefWidth="133.59997940063477" style="-fx-text-fill: white" text="Nume" />
+            <TableColumn fx:id="col_adresa_filter" prefWidth="130.0" style="-fx-text-fill: white" text="Adresa" />
+            <TableColumn fx:id="col_meci_filter" prefWidth="134.0" style="-fx-text-fill: white" text="Meci" />
+            <TableColumn fx:id="col_bilete_filter" prefWidth="79.0" style="-fx-text-fill: white" text="Bilete" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="329.0" layoutY="49.0" prefHeight="18.0" prefWidth="59.0" text="Nume" textFill="#48c3f7" />
-      <Label alignment="CENTER" layoutX="329.0" layoutY="86.0" prefHeight="18.0" prefWidth="59.0" text="Adresa" textFill="#48c3f7" />
-      <TextField fx:id="numeFilter" layoutX="387.0" layoutY="45.0" />
-      <TextField fx:id="adresaFilter" layoutX="387.0" layoutY="83.0" />
-      <Button fx:id="btn_filtrare" layoutX="387.0" layoutY="129.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #20639B;" text="Cauta" textFill="#48c3f7" />
+      <Label alignment="CENTER" layoutX="543.0" layoutY="56.0" prefHeight="18.0" prefWidth="59.0" text="Nume" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="543.0" layoutY="92.0" prefHeight="18.0" prefWidth="59.0" text="Adresa" textFill="WHITE" />
+      <TextField fx:id="nume_filter" layoutX="614.0" layoutY="53.0" />
+      <TextField fx:id="adresa_filter" layoutX="614.0" layoutY="88.0" />
+      <Button fx:id="btn_filtrare" layoutX="614.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #20639B;" text="Cauta" textFill="WHITE" />
+        <TableView fx:id="tabel_probe" layoutX="31.0" layoutY="259.0" prefHeight="226.0" prefWidth="1002.0" style="-fx-text-fill: white ; -fx-border-color: #48c3f7; -fx-border-width: 3;">
+            <columns>
+                <TableColumn fx:id="col_echipaA" prefWidth="225.0" style="-fx-text-fill: white" text="echipaA" />
+                <TableColumn fx:id="col_echipaB" prefWidth="235.0" style="-fx-text-fill: white" text="echipaB" />
+                <TableColumn fx:id="col_nume_meci" prefWidth="276.0" style="-fx-text-fill: white" text="nume_meci" />
+                <TableColumn fx:id="col_nr_loc" prefWidth="99.0" style="-fx-text-fill: white" text="nr_loc" />
+                <TableColumn fx:id="col_pret" prefWidth="93.0" style="-fx-text-fill: white" text="pret" />
+                <TableColumn fx:id="col_status" prefWidth="72.0" style="-fx-text-fill: white" text="status" />
+            </columns>
+            <stylesheets>
+                <URL value="@../Css/table.css" />
+            </stylesheets>
+        </TableView>
+      <Button layoutX="31.0" layoutY="14.0" mnemonicParsing="false" onAction="#gui_logout" prefHeight="26.0" prefWidth="130.0" style="-fx-background-color: #20639B;" text="Logout" textFill="WHITE" />
     </children>
 </AnchorPane>

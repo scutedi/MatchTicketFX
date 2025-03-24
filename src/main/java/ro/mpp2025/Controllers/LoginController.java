@@ -1,5 +1,6 @@
 package ro.mpp2025.Controllers;
 
+import javafx.stage.StageStyle;
 import ro.mpp2025.Domain.User;
 import ro.mpp2025.Service.Service;
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ro.mpp2025.Utils.MessageAlert;
+import ro.mpp2025.Main;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -30,6 +32,7 @@ public class LoginController {
     public void setService(Service service) {
         this.service = service;
         //service.addObserver(this);
+        applyEffect(btn_login);
     }
 
     @FXML
@@ -54,11 +57,19 @@ public class LoginController {
                 Parent signupView = loader.load();
 
                 Stage signupStage = new Stage();
+                signupStage.initStyle(StageStyle.TRANSPARENT);
                 signupStage.setTitle("Bun venit!");
-                signupStage.setScene(new Scene(signupView));
+                Scene signupScene = new Scene(signupView);
+                signupStage.setScene(signupScene);
+
 
                 UserController orgController = loader.getController();
                 orgController.setService(service, org.get());
+
+                Main.addCustomTitleBar(signupStage, signupScene);
+                Stage currentStage = (Stage) input_email.getScene().getWindow();
+                currentStage.close();
+
                 signupStage.show();
 
             } catch (IOException e) {
@@ -67,6 +78,33 @@ public class LoginController {
         }
         else
             MessageAlert.showMessage(null, Alert.AlertType.ERROR, "Autentificare esuata", "parola incorecta!");
+    }
+
+    public static void applyEffect(Button button) {
+        // Setează stilul normal al butonului
+        button.setStyle("-fx-background-color: #20639B; -fx-background-radius: 10px; -fx-text-fill:  #ffffff; -fx-font-size: 13px; -fx-font-weight: bold; -fx-font-family: Arial;");
+
+        // Efect la hover
+        button.setOnMouseEntered(e -> {
+            button.setStyle("-fx-background-color: #20639B; -fx-background-radius: 10px; -fx-opacity: 0.7; fx-text-fill: #ffffff; -fx-font-size: 13px; -fx-font-weight: bold; -fx-font-family: Arial;");
+        });
+
+        // Efect la ieșirea mouse-ului
+        button.setOnMouseExited(e -> {
+            button.setStyle("-fx-background-color: #20639B; -fx-background-radius: 10px; -fx-text-fill: #ffffff;; -fx-font-size: 13px; -fx-font-weight: bold; -fx-font-family: Arial;");
+        });
+
+        // Efect la apăsare
+        button.setOnMousePressed(e -> {
+            button.setStyle("-fx-background-color: #20639B; -fx-background-radius: 10px; -fx-opacity: 0.7; -fx-text-fill: #ffffff; -fx-font-size: 13px; -fx-font-weight: bold; -fx-font-family: Arial;");
+        });
+
+        // Revine la culoarea hover când se eliberează
+        button.setOnMouseReleased(e -> {
+            button.setStyle("-fx-background-color: #20639B; -fx-background-radius: 10px; -fx-text-fill: #ffffff; -fx-font-size: 13px; -fx-font-weight: bold; -fx-font-family: Arial;");
+        });
+
+
     }
 
 }

@@ -1,0 +1,55 @@
+.table-view {
+    -fx-background-color: #20639B;  /* Culoare de fundal pentru întreaga tabelă */
+    -fx-text-fill: white;  /* Culoare text pentru tabelă */
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #20639B;  /* Culoare fundal pentru rânduri */
+    -fx-text-fill: white;  /* Culoare text pentru rânduri */
+}
+
+.table-view .table-row-cell:filled:hover {
+    -fx-background-color: #48c3f7;  /* Culoare pentru rânduri la hover */
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #48c3f7;  /* Culoare pentru rândul selectat */
+    -fx-text-fill: white;  /* Culoare text pentru rândul selectat */
+}
+
+.table-view .column-header {
+    -fx-background-color: #20639B;  /* Culoare fundal pentru titlurile de coloană */
+    -fx-font-weight: bold;  /* Font îngroșat pentru titlurile de coloană */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+.table-view .scroll-bar:vertical {
+    -fx-background-color: #173F5F;
+    -fx-pref-width: 12px;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #48c3f7;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: #20639B;  /* Culoarea zonei inactive (în care thumb-ul nu se mișcă) */
+}
+
+/* Personalizarea barei de derulare orizontale */
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: #173F5F;
+    -fx-pref-height: 12px;
+}
+
+.table-view .scroll-bar:horizontal .track {
+    -fx-background-color: #20639B;  /* Culoarea zonei inactive (în care thumb-ul nu se mișcă) */
+}
+
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #48c3f7;
+}

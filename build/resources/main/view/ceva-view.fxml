@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="ro.mpp2025.Controllers.LoginController">
+    <!-- Bara de titlu personalizată -->
+    <HBox fx:id="titleBar" style="-fx-background-color: #2C3E50; -fx-padding: 10;" alignment="CENTER_LEFT">
+        <Text text="Titlul Feroniei" style="-fx-fill: white; -fx-font-size: 20px; -fx-font-weight: bold; -fx-padding: 0 10px;"/>
+        <Button fx:id="minimizeButton" text="—" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5px 10px;" onAction="#handleMinimize"/>
+        <Button fx:id="maximizeButton" text="□" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5px 10px;" onAction="#handleMaximize"/>
+        <Button fx:id="closeButton" text="X" style="-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 5px 10px;" onAction="#handleClose"/>
+    </HBox>
+
+    <!-- Conținutul feroniei -->
+    <AnchorPane layoutX="0.0" layoutY="50.0" prefHeight="300.0" prefWidth="400.0">
+        <!-- Adaugă conținutul feroniei aici -->
+    </AnchorPane>
+</AnchorPane>

@@ -65,34 +65,40 @@ public class BiletRepoDB implements IRepositoryBilet {
     public Iterable<Bilet> findAll() {
         logger.traceEntry();
         Connection con = dbUtils.getConnection();
-        List<Bilet> bilete = new ArrayList<>();
-        String sql = "SELECT b.bilet_id, m.meci_id, m.nume_meci, m.nr_loc, m.pret, " +
-                "eA.echipa_id AS echipaA_id, eA.nume AS echipaA_nume, " +
-                "eB.echipa_id AS echipaB_id, eB.nume AS echipaB_nume, " +
-                "c.client_id, c.nume AS client_nume, c.adresa " +
+        String sql = "SELECT b.bilet_id, m.id_meci, m.nume_meci, m.nr_loc, m.pret, " +
+                "eA.id_echipa AS echipaA_id, eA.name AS echipaA_nume, " +
+                "eB.id_echipa AS echipaB_id, eB.name AS echipaB_nume, " +
+                "c.id_client, c.nume AS client_nume, c.adresa " +
                 "FROM Bilet b " +
-                "JOIN Meci m ON b.meci_id = m.meci_id " +
-                "JOIN Echipa eA ON m.echipaA_id = eA.echipa_id " +
-                "JOIN Echipa eB ON m.echipaB_id = eB.echipa_id " +
-                "JOIN Client c ON b.client_id = c.client_id";
+                "JOIN Meci m ON b.meci_id = m.id_meci " +
+                "JOIN Echipa eA ON m.echipaA_id = eA.id_echipa " +
+                "JOIN Echipa eB ON m.echipaB_id = eB.id_echipa " +
+                "JOIN Client c ON b.client_id = c.id_client ";  // Asigură-te că filtrarea se face corect
+
+        List<Bilet> bilets = new ArrayList<>();
+
         try (PreparedStatement preStmt = con.prepareStatement(sql)) {
             try (ResultSet result = preStmt.executeQuery()) {
                 while (result.next()) {
                     Echipa echipaA = new Echipa(result.getString("echipaA_nume"));
+                    echipaA.setId(result.getInt("echipaA_id"));
                     Echipa echipaB = new Echipa(result.getString("echipaB_nume"));
-                    Meci meci = new Meci(echipaA, echipaB, result.getString("nume_meci"),  result.getInt("nr_loc"), result.getInt("pret"));
-                    Client client = new Client( result.getString("client_nume"), result.getString("adresa"));
+                    echipaB.setId(result.getInt("echipaB_id"));
+                    Meci meci = new Meci(echipaA, echipaB, result.getString("nume_meci"),
+                            result.getInt("nr_loc"), result.getInt("pret"));
+                    meci.setId(result.getInt("id_meci"));
+                    Client client = new Client(result.getString("client_nume"), result.getString("adresa"));
                     Bilet bilet = new Bilet(meci, client);
                     bilet.setId(result.getInt("bilet_id"));
-                    bilete.add(bilet);
+                    bilets.add(bilet);
                 }
             }
         } catch (SQLException ex) {
             logger.error(ex);
             System.err.println("Error DB " + ex);
         }
-        logger.traceExit(bilete);
-        return bilete;
+        logger.traceExit();
+        return bilets;
     }
 
     @Override
@@ -145,4 +151,49 @@ public class BiletRepoDB implements IRepositoryBilet {
         logger.traceExit();
         return Optional.of(new_entity);
     }
+
+
+    @Override
+    public Iterable<Bilet> findAllOneByName(String numeClient) {
+        logger.traceEntry();
+        Connection con = dbUtils.getConnection();
+        String sql = "SELECT b.bilet_id, m.id_meci, m.nume_meci, m.nr_loc, m.pret, " +
+                "eA.id_echipa AS echipaA_id, eA.name AS echipaA_nume, " +
+                "eB.id_echipa AS echipaB_id, eB.name AS echipaB_nume, " +
+                "c.id_client, c.nume AS client_nume, c.adresa, COUNT(b.bilet_id) AS numar_bilete " +
+                "FROM Bilet b " +
+                "JOIN Meci m ON b.meci_id = m.id_meci " +
+                "JOIN Echipa eA ON m.echipaA_id = eA.id_echipa " +
+                "JOIN Echipa eB ON m.echipaB_id = eB.id_echipa " +
+                "JOIN Client c ON b.client_id = c.id_client " +
+                "WHERE c.nume = ? " +
+                "GROUP BY c.nume, m.id_meci"; // Asigură-te că filtrarea se face corect
+
+        List<Bilet> bilets = new ArrayList<>();
+
+        try (PreparedStatement preStmt = con.prepareStatement(sql)) {
+            preStmt.setString(1, numeClient);
+            try (ResultSet result = preStmt.executeQuery()) {
+                while (result.next()) {
+                    Echipa echipaA = new Echipa(result.getString("echipaA_nume"));
+                    echipaA.setId(result.getInt("echipaA_id"));
+                    Echipa echipaB = new Echipa(result.getString("echipaB_nume"));
+                    echipaB.setId(result.getInt("echipaB_id"));
+                    Meci meci = new Meci(echipaA, echipaB, result.getString("nume_meci"),
+                            result.getInt("nr_loc"), result.getInt("pret"));
+                    meci.setId(result.getInt("id_meci"));
+                    Client client = new Client(result.getString("client_nume"), result.getString("adresa"));
+                    Bilet bilet = new Bilet(meci, client);
+                    bilet.setId(result.getInt("bilet_id"));
+                    bilets.add(bilet);
+                }
+            }
+        } catch (SQLException ex) {
+            logger.error(ex);
+            System.err.println("Error DB " + ex);
+        }
+        logger.traceExit();
+        return bilets;
+    }
+
 }
