@@ -57,6 +57,10 @@ public class Service {
         repositoryBilet.save(new Bilet(meci, client));
     }
 
+    public void saveUser(User user){
+        repositoryUser.save(user);
+    }
+
     public void updateMeci(Meci meci){
         repositoryMeci.update(meci);
     }

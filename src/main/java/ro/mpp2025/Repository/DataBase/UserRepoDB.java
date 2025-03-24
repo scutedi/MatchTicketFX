@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class UserRepoDB implements IRepositoryUser {
 
     private static final Logger logger= LogManager.getLogger();
@@ -91,8 +93,9 @@ public class UserRepoDB implements IRepositoryUser {
         Connection con=dbUtils.getConnection();
         try (PreparedStatement ps = con.prepareStatement(sql))
         {
+            String hashedPassword = BCrypt.hashpw(entity.getPassword(), BCrypt.gensalt(12));
             ps.setString(1,entity.getEmail());
-            ps.setString(2,entity.getPassword());
+            ps.setString(2,hashedPassword);
             ps.executeUpdate();
         }
         catch (SQLException e)

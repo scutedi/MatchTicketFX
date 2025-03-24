@@ -1,8 +1,5 @@
 package ro.mpp2025.Controllers;
 
-import javafx.stage.StageStyle;
-import ro.mpp2025.Domain.User;
-import ro.mpp2025.Service.Service;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,15 +10,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import ro.mpp2025.Utils.MessageAlert;
+import javafx.stage.StageStyle;
+import ro.mpp2025.Domain.User;
 import ro.mpp2025.Main;
+import ro.mpp2025.Service.Service;
+import ro.mpp2025.Utils.MessageAlert;
 
 import java.io.IOException;
 import java.util.Optional;
 
-import org.mindrot.jbcrypt.BCrypt;
 
-public class LoginController {
+public class RegisterController {
     Service service;
 
     @FXML
@@ -38,56 +37,21 @@ public class LoginController {
     }
 
     @FXML
-    private void handleClicks(ActionEvent event)
-    {
-        if(event.getSource()==btn_login)
-            gui_login();
+    private void handleClicks(ActionEvent event) {
+        if (event.getSource() == btn_login)
+            gui_register();
     }
 
-    private void gui_login() {
+    private void gui_register() {
         String email = input_email.getText();
         String password = input_password.getText();
 
-        Optional<User> org = service.findOneUserByEmail(email);
-        System.out.println(org.get().getPassword());
-        if(org.isEmpty())
-            MessageAlert.showMessage(null, Alert.AlertType.ERROR, "Autentificare esuata", "Nu exista un utilizator cu acest email!");
-        else if (BCrypt.checkpw(password, org.get().getPassword()))
-        {
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/view/user-view.fxml"));
-                Parent signupView = loader.load();
+        User user = new User(email, password);
+        service.saveUser(user);
 
-                Stage signupStage = new Stage();
-                signupStage.initStyle(StageStyle.TRANSPARENT);
-                signupStage.setTitle("Bun venit!");
-                Scene signupScene = new Scene(signupView);
-                signupStage.setScene(signupScene);
-
-
-                UserController orgController = loader.getController();
-                orgController.setService(service, org.get());
-
-                Main.addCustomTitleBar(signupStage, signupScene);
-                Stage currentStage = (Stage) input_email.getScene().getWindow();
-                currentStage.close();
-
-                signupStage.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        else
-            MessageAlert.showMessage(null, Alert.AlertType.ERROR, "Autentificare esuata", "parola incorecta!");
-    }
-
-    @FXML
-    private void gui_register(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/view/register-view.fxml"));
+            loader.setLocation(getClass().getResource("/view/login-view.fxml"));
             Parent signupView = loader.load();
 
             Stage signupStage = new Stage();
@@ -97,7 +61,7 @@ public class LoginController {
             signupStage.setScene(signupScene);
 
 
-            RegisterController orgController = loader.getController();
+            LoginController orgController = loader.getController();
             orgController.setService(service);
 
             Main.addCustomTitleBar(signupStage, signupScene);
@@ -109,8 +73,8 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
 
     public static void applyEffect(Button button) {
         // Setează stilul normal al butonului
@@ -138,5 +102,4 @@ public class LoginController {
 
 
     }
-
 }

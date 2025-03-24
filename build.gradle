@@ -19,7 +19,6 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
     implementation group: 'com.google.guava', name: 'guava', version: '32.0.1-android'
-
     // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
     implementation 'org.xerial:sqlite-jdbc:3.49.1.0'
 
@@ -32,6 +31,8 @@ dependencies {
     implementation 'org.openjfx:javafx-fxml:17.0.6'
     implementation 'org.openjfx:javafx-web:17.0.6'  // Adaugă dacă folosești WebView
     implementation 'org.openjfx:javafx-media:17.0.6'  // Adaugă dacă folosești funcționalități media
+
+    implementation 'org.mindrot:jbcrypt:0.4'
 }
 
 application {

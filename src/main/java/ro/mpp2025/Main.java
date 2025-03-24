@@ -53,11 +53,6 @@ public class Main extends Application {
         this.repositoryMeci = new MeciRepoDB(props);
         this.repositoryUser = new UserRepoDB(props);
 
-        Iterable<Meci> meciuri = repositoryMeci.findAll();
-        for(Meci meci : meciuri){
-            System.out.println(meci);
-        }
-
         this.service = new Service(repositoryBilet, repositoryClient, repositoryEchipa , repositoryMeci , repositoryUser);
 
         init(stage);
